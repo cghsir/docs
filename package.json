@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cghsir/docs#readme",
   "dependencies": {
+    "moment": "^2.29.3",
     "vuepress": "^1.9.7",
     "vuepress-plugin-auto-sidebar": "^2.3.2"
   }

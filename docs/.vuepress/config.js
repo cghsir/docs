@@ -1,3 +1,6 @@
+const moment = require('moment');
+moment.locale("zh-cn");
+
 module.exports = {
     title: '个人笔记',
     description: '个人笔记',
@@ -8,6 +11,7 @@ module.exports = {
     ],
     themeConfig: {
         logo: '/assets/img/logo/logo.png',
+        lastUpdated: '更新时间', // string | boolean
         nav: [
             {text: 'Home', link: '/'},
             {text: 'System', link: '/system/'},
@@ -15,6 +19,12 @@ module.exports = {
         ]
     },
     plugins: {
-        "vuepress-plugin-auto-sidebar": {}
+        "vuepress-plugin-auto-sidebar": {},
+        '@vuepress/last-updated': {
+            transformer: (timestamp) => {
+                // 不要忘了安装 moment
+                return moment(timestamp).format("LLLL")
+            }
+        }
     }
 }
