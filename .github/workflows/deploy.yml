@@ -8,19 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 12.x, 14.x, 16.x ]
+#        node-version: [ 12.x, 14.x, 16.x ]
+        node-version: [ 16.x ]
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm install
-      - run: npm run build --if-present
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.5.9
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
+      - name: 检出代码
+        uses: actions/checkout@v3
+
