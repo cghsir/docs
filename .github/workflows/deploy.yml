@@ -9,10 +9,13 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v3
-      - name: 环境检测
-        run: npm -v
-      - name: 安装
-        run: npm install
-      - name: ls -al
-        run: ls -al
+      - name: 安装依赖
+        run: |
+          npm ci
+          npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs/.vuepress/dist
+          
 
