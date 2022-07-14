@@ -10,6 +10,6 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v3
       - name: 环境检测
-        run: |
-          node -v |
-          date
+      - run: npm -v
+      - run: date
+      - run: ls -al
