@@ -2,6 +2,7 @@ const moment = require('moment');
 moment.locale("zh-cn");
 
 module.exports = {
+    base: '/docs/',
     title: '个人笔记',
     description: '个人笔记',
     head: [
